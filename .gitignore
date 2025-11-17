@@ -1,1 +1,15 @@
-node_modules
+# Dependencies
+/node_modules
+
+# Build files
+/dist
+/build
+
+# Config files
+.env
+
+#- Electron -------------------------------------------------------------------
+.electron/
+.webpack/
+*.js.map
+*.ts.map
