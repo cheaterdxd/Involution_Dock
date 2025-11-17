@@ -2,39 +2,35 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/renderer/index.js',
+  mode: 'development',
+  entry: './src/renderer/index.jsx', // Updated entry point
+  target: 'electron-renderer',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'renderer.js',
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)$/, // Match both .js and .jsx
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react']
-          }
+          loader: 'babel-loader'
+          // Babel will use .babelrc
         }
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/renderer/index.html'
+      template: path.resolve(__dirname, 'src/renderer/index.html')
     })
   ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    compress: true,
-    port: 9000
-  }
+  resolve: {
+    extensions: ['.js', '.jsx'], // Resolve both extensions
+  },
 };
