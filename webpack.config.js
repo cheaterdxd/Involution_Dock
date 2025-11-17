@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: './src/renderer/index.jsx', // Updated entry point
+  devtool: 'cheap-module-source-map', // Add source maps for better debugging
   target: 'electron-renderer',
   output: {
     path: path.resolve(__dirname, 'dist'),

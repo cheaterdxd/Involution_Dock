@@ -33,9 +33,9 @@ async function ensureConfigFile() {
 function createWindow() {
   const primaryDisplay = screen.getPrimaryDisplay();
   const { width } = primaryDisplay.workAreaSize;
-  win = new BrowserWindow({ width: 800, height: 50, x: Math.round((width - 800) / 2), y: 50, frame: false, transparent: true, alwaysOnTop: true, resizable: false, webPreferences: { preload: path.join(__dirname, '../preload/preload.js'), contextIsolation: true, nodeIntegration: false } });
+  win = new BrowserWindow({ width: 800, height: 50, x: Math.round((width - 800) / 2), y: 50, frame: false, transparent: false, backgroundColor: '#f0f0f0', alwaysOnTop: true, resizable: false, webPreferences: { preload: path.join(__dirname, '../preload/preload.js'), contextIsolation: true, nodeIntegration: false } });
   win.loadFile(path.join(__dirname, '../../dist/index.html'));
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools(); // Uncomment this line if you need to debug
 }
 
 // === IPC Handlers ===
