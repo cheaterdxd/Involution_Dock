@@ -4,7 +4,7 @@
   "description": "A minimalist floating dock bar for Windows.",
   "main": "src/main/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "npm run build && electron .",
     "build": "webpack --config webpack.config.js",
     "package": "npm run build && electron-builder"
   },
