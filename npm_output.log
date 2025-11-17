@@ -1,7 +1,3 @@
 
 > app@1.0.0 start
 > npm run build && electron .
-
-
-> app@1.0.0 build
-> webpack --config webpack.config.js

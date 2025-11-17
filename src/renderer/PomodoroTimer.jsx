@@ -23,7 +23,7 @@ function PomodoroTimer({ settings }) {
           setSeconds(59);
         } else {
           // Timer finished
-          alert(isWorkSession ? "Time for a break!" : "Back to work!");
+          console.log(isWorkSession ? "Pomodoro: Time for a break!" : "Pomodoro: Back to work!");
           const nextIsWorkSession = !isWorkSession;
           setIsWorkSession(nextIsWorkSession);
           resetTimer(nextIsWorkSession);
